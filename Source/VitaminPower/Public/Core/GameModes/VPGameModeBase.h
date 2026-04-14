@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// A Vitamin Power Game. All Rights Reserved.
 
 #pragma once
 

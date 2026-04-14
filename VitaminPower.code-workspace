@@ -1,0 +1,1353 @@
+{
+	"folders": [
+		{
+			"name": "VitaminPower",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "H:\\UE_5.3"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "VitaminPower Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Win64",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Cook+Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Debug",
+					"-ServerConfig=Debug",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Debug Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Cook",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Debug",
+					"-ServerConfig=Debug",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Debug Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Debug",
+					"-ServerConfig=Debug",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-DeploySoToDevice",
+					"-SkipCook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPower Android Debug Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Android Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Cook+Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=DebugGame",
+					"-ServerConfig=DebugGame",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android DebugGame Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Cook",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=DebugGame",
+					"-ServerConfig=DebugGame",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android DebugGame Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=DebugGame",
+					"-ServerConfig=DebugGame",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-DeploySoToDevice",
+					"-SkipCook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPower Android DebugGame Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Android DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Cook+Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Development",
+					"-ServerConfig=Development",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Cook",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Development",
+					"-ServerConfig=Development",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Development",
+					"-ServerConfig=Development",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-DeploySoToDevice",
+					"-SkipCook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPower Android Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Android Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Cook+Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Test",
+					"-ServerConfig=Test",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Test Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Cook",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Test",
+					"-ServerConfig=Test",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Test Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Test",
+					"-ServerConfig=Test",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-DeploySoToDevice",
+					"-SkipCook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPower Android Test Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Android Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Test",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Cook+Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Shipping",
+					"-ServerConfig=Shipping",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Shipping Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Cook",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Shipping",
+					"-ServerConfig=Shipping",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-Cook"
+				],
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Build",
+					"VitaminPower Android Shipping Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Deploy",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\RunUAT.bat",
+				"args": [
+					"BuildCookRun",
+					"-ScriptsForProject=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-Project=C:/Users/SZHerio/Documents/Unreal Projects/VitaminPower/VitaminPower.uproject",
+					"-noP4",
+					"-ClientConfig=Shipping",
+					"-ServerConfig=Shipping",
+					"-NoCompileEditor",
+					"-utf8output",
+					"-Platform=Android",
+					"-TargetPlatform=Android",
+					"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+					"-Compressed",
+					"-IterativeCooking",
+					"-IterativeDeploy",
+					"-DeploySoToDevice",
+					"-SkipCook",
+					"-Stage",
+					"-Deploy"
+				],
+				"dependsOn": [
+					"VitaminPower Android Shipping Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPower Android Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPower Android Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPower",
+					"Android",
+					"Shipping",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Debug",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPowerEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"DebugGame",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"VitaminPowerEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			},
+			{
+				"label": "VitaminPowerEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"VitaminPowerEditor",
+					"Win64",
+					"Development",
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "H:\\UE_5.3"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch VitaminPower (Debug)",
+				"request": "launch",
+				"program": "C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "VitaminPower Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPower (DebugGame)",
+				"request": "launch",
+				"program": "C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "VitaminPower Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPower (Development)",
+				"request": "launch",
+				"program": "C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "VitaminPower Win64 Development Build",
+				"args": [
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPower (Test)",
+				"request": "launch",
+				"program": "C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "VitaminPower Win64 Test Build",
+				"args": [
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPower (Shipping)",
+				"request": "launch",
+				"program": "C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "VitaminPower Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPowerEditor (Debug)",
+				"request": "launch",
+				"program": "H:\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "VitaminPowerEditor Win64 Debug Build",
+				"args": [
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject"
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPowerEditor (DebugGame)",
+				"request": "launch",
+				"program": "H:\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "VitaminPowerEditor Win64 DebugGame Build",
+				"args": [
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject"
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch VitaminPowerEditor (Development)",
+				"request": "launch",
+				"program": "H:\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "VitaminPowerEditor Win64 Development Build",
+				"args": [
+					"C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject"
+				],
+				"cwd": "H:\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "H:\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "H:\\UE_5.3"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "H:\\UE_5.3\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=C:\\Users\\SZHerio\\Documents\\Unreal Projects\\VitaminPower\\VitaminPower.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "externalTerminal",
+				"stopAtEntry": false,
+				"cwd": "H:\\UE_5.3"
+			}
+		]
+	}
+}
