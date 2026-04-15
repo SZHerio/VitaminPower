@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-DEFINE_LOG_CATEGORY_STATIC(LogVPUtils, All, All)
-
 class VPUtils
 {
 public:

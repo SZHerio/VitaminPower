@@ -6,7 +6,8 @@
 #include "UObject/Interface.h"
 #include "VPKitchenObjectHolder.generated.h"
 
-// This class does not need to be modified.
+class AKitchenObject;
+
 UINTERFACE(MinimalAPI)
 class UVPKitchenObjectHolder : public UInterface
 {
@@ -18,12 +19,7 @@ class VITAMINPOWER_API IVPKitchenObjectHolder
 	GENERATED_BODY()
 
 public:
-	UFUNCTION()
 	virtual bool HasKitchenObject() = 0;
-
-	UFUNCTION()
 	virtual void SetKitchenObject(AKitchenObject* KitchenObject) = 0;
-	
-	UFUNCTION()
 	virtual AKitchenObject* GetKitchenObject() = 0;
 };

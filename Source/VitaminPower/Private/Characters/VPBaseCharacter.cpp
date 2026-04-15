@@ -71,9 +71,6 @@ void AVPBaseCharacter::Tick(float DeltaSeconds)
 	FindObjectByTrace();
 	SetInteractableObject();
 	SelectInteractableObject();
-
-	VPUtils::LogMessage(FString(LexToString(CurrentInteractableObject ? true : false)));
-	VPUtils::LogMessage(FString(LexToString(CurrentInteractableObject ? true : false)));
 }
 
 void AVPBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

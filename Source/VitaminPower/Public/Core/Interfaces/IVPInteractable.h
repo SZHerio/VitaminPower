@@ -20,12 +20,7 @@ class VITAMINPOWER_API IVPInteractable
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(Category = "Interaction")
 	virtual void Interact(AVPBaseCharacter* BaseCharacter) = 0;
-
-	UFUNCTION(Category = "Interaction")
 	virtual void StartHighlighting() = 0;
-
-	UFUNCTION(Category = "Interaction")
 	virtual void StopHighlighting() = 0;
 };

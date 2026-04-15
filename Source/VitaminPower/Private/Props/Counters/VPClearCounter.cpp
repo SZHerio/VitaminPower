@@ -19,7 +19,7 @@ void AVPClearCounter::Interact(AVPBaseCharacter* BaseCharacter)
 		if(!HasKitchenObject()) return;
 
 		SetKitchenObject(nullptr);
-		BaseCharacter->SetKitchenObject(CharacterKitchenObject);
+		BaseCharacter->SetKitchenObject(KitchenObjects.Top());
 	}
 	else
 	{
@@ -32,11 +32,12 @@ void AVPClearCounter::Interact(AVPBaseCharacter* BaseCharacter)
 
 bool AVPClearCounter::HasKitchenObject()
 {
-	return KitchenObjects.IsEmpty();
+	return !KitchenObjects.IsEmpty();
 }
 
 void AVPClearCounter::SetKitchenObject(AKitchenObject* Object)
 {
+	if(!Object) return;
 	if(KitchenObjects.Num() >= MaxKitchenObjectsSize) return;
 
 	KitchenObjects.Add(Object);
@@ -44,5 +45,7 @@ void AVPClearCounter::SetKitchenObject(AKitchenObject* Object)
 
 AKitchenObject* AVPClearCounter::GetKitchenObject()
 {
+	if(!HasKitchenObject()) return nullptr;
+	
 	return KitchenObjects.Last();
 }

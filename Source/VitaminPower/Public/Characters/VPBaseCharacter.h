@@ -67,14 +67,8 @@ protected:
 	
 public:
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
-
-	UFUNCTION()
 	virtual bool HasKitchenObject() override;
-
-	UFUNCTION()
 	virtual void SetKitchenObject(AKitchenObject* Object) override;
-
-	UFUNCTION()
 	virtual AKitchenObject* GetKitchenObject() override;
 	
 protected:
@@ -84,6 +78,5 @@ protected:
 	void SetInteractableObject();
 
 private:
-	UFUNCTION()
 	void BaseCharacter_OnStartedInteraction();
 };
