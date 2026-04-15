@@ -2,10 +2,14 @@
 
 #include "Characters/VPBaseCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Core/Interfaces/IVPInteractable.h"
+#include "Core/Misc/VPUtils.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Props/Counters/VPInteractableObject.h"
 
 AVPBaseCharacter::AVPBaseCharacter()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 	
 	GetMesh()->SetHiddenInGame(true);
 	GetMesh()->SetVisibility(false);
@@ -13,6 +17,7 @@ AVPBaseCharacter::AVPBaseCharacter()
 
 	GetCapsuleComponent()->InitCapsuleSize(CapsuleSizeRadius, CapsuleSizeHalfHeight);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	GetCharacterMovement()->MaxAcceleration = MaxAccelerationMovement;
 	
 	HeadMesh = CreateDefaultSubobject<UStaticMeshComponent>("HeadMesh");
 	HeadMesh->SetupAttachment(RootComponent);
@@ -55,12 +60,91 @@ AVPBaseCharacter::AVPBaseCharacter()
 void AVPBaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	OnStartedInteraction.AddUObject(this, &AVPBaseCharacter::BaseCharacter_OnStartedInteraction);
+}
+
+void AVPBaseCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	FindObjectByTrace();
+	SetInteractableObject();
+	SelectInteractableObject();
+
+	VPUtils::LogMessage(FString(LexToString(CurrentInteractableObject ? true : false)));
+	VPUtils::LogMessage(FString(LexToString(CurrentInteractableObject ? true : false)));
 }
 
 void AVPBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+bool AVPBaseCharacter::HasKitchenObject()
+{
+	return KitchenObject ? true : false;
+}
+
+void AVPBaseCharacter::SetKitchenObject(AKitchenObject* Object)
+{
+	KitchenObject = Object;
+}
+
+AKitchenObject* AVPBaseCharacter::GetKitchenObject()
+{
+	return KitchenObject;
+}
+
+void AVPBaseCharacter::FindObjectByTrace()
+{
+	const auto Start = GetActorLocation();
+	const auto End = Start + GetActorForwardVector() * TraceLength;
+
+	if(!GetWorld()) return;
+
+	FCollisionQueryParams CollisionQueryParams;
+	CollisionQueryParams.AddIgnoredActor(this);
+	
+	const auto HasHit = GetWorld()->LineTraceSingleByChannel(ObjectHitResult, Start, End, ECC_Camera, CollisionQueryParams);
+	DrawDebugLine(GetWorld(), Start, End, HasHit ? FColor::Green : FColor::Red, false, -1, 0, 2.0f);
+}
+
+void AVPBaseCharacter::SelectInteractableObject()
+{
+	if(CurrentInteractableObject == PreviousInteractableObject) return;
+
+	if(PreviousInteractableObject)
+	{
+		PreviousInteractableObject->StopHighlighting();
+	}
+
+	if(CurrentInteractableObject)
+	{
+		CurrentInteractableObject->StartHighlighting();
+	}
+}
+
+void AVPBaseCharacter::SetInteractableObject()
+{
+	const auto InteractableObject = Cast<AVPInteractableObject>(ObjectHitResult.GetActor());
+	
+	if(!InteractableObject)
+	{
+		PreviousInteractableObject = CurrentInteractableObject;
+		CurrentInteractableObject = nullptr;
+		return;
+	}
+
+	PreviousInteractableObject = CurrentInteractableObject;
+	CurrentInteractableObject = InteractableObject;
+}
+
+void AVPBaseCharacter::BaseCharacter_OnStartedInteraction()
+{
+	if(!CurrentInteractableObject) return;
+
+	CurrentInteractableObject->Interact(this);
 }
 

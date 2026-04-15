@@ -6,6 +6,7 @@
 #include "Characters/VPBaseCharacter.h"
 #include "VPPlayerCharacter.generated.h"
 
+class IVPInteractable;
 class USpringArmComponent;
 class UCameraComponent;
 
@@ -22,12 +23,13 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	UPROPERTY(EditDefaultsOnly, Category = "Character")
+	UPROPERTY(VisibleAnywhere,  BlueprintReadOnly, Category = "Components")
 	TObjectPtr<USpringArmComponent> SpringArmComponent;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Character")
+	UPROPERTY(VisibleAnywhere,  BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UCameraComponent> CameraComponent;
 
+	
 private:
 	FRotator MovementRotationRate = FRotator(0.0f, 720.0f, 0.0f);
 	FRotator SpringArmRelativeRotation = FRotator(-50.0f, 0.0f, 0.0f);

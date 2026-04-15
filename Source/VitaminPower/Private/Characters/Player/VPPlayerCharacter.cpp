@@ -2,6 +2,8 @@
 
 #include "Characters/Player/VPPlayerCharacter.h"
 #include "Camera/CameraComponent.h"
+#include "Core/Interfaces/IVPInteractable.h"
+#include "Core/Misc/VPUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 

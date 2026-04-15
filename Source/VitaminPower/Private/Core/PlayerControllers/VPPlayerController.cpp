@@ -33,6 +33,11 @@ void AVPPlayerController::SetupInputComponent()
 	{
 		EnhancedInputComponent->BindAction(MoveInputAction, ETriggerEvent::Triggered, this, &AVPPlayerController::Move);
 	}
+
+	if(InteractInputAction)
+	{
+		EnhancedInputComponent->BindAction(InteractInputAction, ETriggerEvent::Completed, this, &AVPPlayerController::Interact);
+	}
 }
 
 void AVPPlayerController::InitMappingContext()
@@ -57,6 +62,11 @@ void AVPPlayerController::Move(const FInputActionValue& Val)
 
 	const FVector2D MovementVector = Val.Get<FVector2D>();
 	PlayerCharacter->Move(MovementVector);
+}
+
+void AVPPlayerController::Interact()
+{
+	PlayerCharacter->OnStartedInteraction.Broadcast();
 }
 
 void AVPPlayerController::InitPlayerCharacter()

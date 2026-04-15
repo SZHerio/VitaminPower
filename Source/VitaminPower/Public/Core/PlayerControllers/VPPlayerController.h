@@ -26,13 +26,17 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> MoveInputAction;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UInputAction> InteractInputAction;
+	
 protected:
 	virtual void OnPossess(APawn* InPawn) override;
 	virtual void SetupInputComponent() override;
 	
 private:
 	void InitMappingContext();
-	void Move(const FInputActionValue& val);
+	void Move(const FInputActionValue& Val);
+	void Interact();
 	void InitPlayerCharacter();
 
 private:
