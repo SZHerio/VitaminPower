@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Core/Misc/VPKitchenObjectsTypes.h"
 #include "GameFramework/Actor.h"
 #include "KitchenObject.generated.h"
+
 
 UCLASS()
 class VITAMINPOWER_API AKitchenObject : public AActor
@@ -12,15 +14,18 @@ class VITAMINPOWER_API AKitchenObject : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	AKitchenObject();
 
 protected:
-	// Called when the game starts or when spawned
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
+	
+	UPROPERTY(EditAnywhere, Category = "Fields")
+	FKitchenObjectParams Params{};
+	
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 };

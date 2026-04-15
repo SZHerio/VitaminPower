@@ -2,7 +2,6 @@
 
 #include "Props/Counters/VPClearCounter.h"
 #include "Characters/VPBaseCharacter.h"
-#include "Core/Misc/VPUtils.h"
 
 AVPClearCounter::AVPClearCounter()
 {
@@ -18,15 +17,15 @@ void AVPClearCounter::Interact(AVPBaseCharacter* BaseCharacter)
 	{
 		if(!HasKitchenObject()) return;
 
-		SetKitchenObject(nullptr);
-		BaseCharacter->SetKitchenObject(KitchenObjects.Top());
+		RemoveKitchenObject();
+		BaseCharacter->AddKitchenObject(KitchenObjects.Top());
 	}
 	else
 	{
 		if(!BaseCharacter->HasKitchenObject()) return;
-		
-		SetKitchenObject(CharacterKitchenObject);
-		BaseCharacter->SetKitchenObject(nullptr);
+
+		AddKitchenObject(CharacterKitchenObject);
+		BaseCharacter->RemoveKitchenObject();
 	}
 }
 
@@ -35,10 +34,15 @@ bool AVPClearCounter::HasKitchenObject()
 	return !KitchenObjects.IsEmpty();
 }
 
-void AVPClearCounter::SetKitchenObject(AKitchenObject* Object)
+void AVPClearCounter::RemoveKitchenObject()
 {
-	if(!Object) return;
-	if(KitchenObjects.Num() >= MaxKitchenObjectsSize) return;
+	if(!HasKitchenObject()) return;
+	KitchenObjects.Pop();
+}
+
+void AVPClearCounter::AddKitchenObject(AKitchenObject* Object)
+{
+	if(!Object || KitchenObjects.Num() >= MaxKitchenObjectsSize) return;
 
 	KitchenObjects.Add(Object);
 }

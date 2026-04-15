@@ -37,6 +37,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere,  BlueprintReadOnly, Category = "Visual")
 	TObjectPtr<UStaticMeshComponent> RightEyeMesh;
+
+	UPROPERTY(VisibleAnywhere,  BlueprintReadOnly, Category = "Character")
+	TObjectPtr<USceneComponent> SpawnPointComponent;
 	
 protected:
 	UPROPERTY(EditAnywhere, Category = "Tracing", meta=(ClampMax = "1000.0", ClampMin = "50.0"))
@@ -68,13 +71,13 @@ protected:
 public:
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	virtual bool HasKitchenObject() override;
-	virtual void SetKitchenObject(AKitchenObject* Object) override;
 	virtual AKitchenObject* GetKitchenObject() override;
+	virtual void RemoveKitchenObject() override;
+	virtual void AddKitchenObject(AKitchenObject* Object) override;
 	
 protected:
 	void FindObjectByTrace();
 	void SelectInteractableObject();
-	void InteractWith();
 	void SetInteractableObject();
 
 private:

@@ -2,10 +2,9 @@
 
 #include "Characters/VPBaseCharacter.h"
 #include "Components/CapsuleComponent.h"
-#include "Core/Interfaces/IVPInteractable.h"
-#include "Core/Misc/VPUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Props/Counters/VPInteractableObject.h"
+#include "Props/KitchenObjects/KitchenObject.h"
 
 AVPBaseCharacter::AVPBaseCharacter()
 {
@@ -33,18 +32,21 @@ AVPBaseCharacter::AVPBaseCharacter()
 	BodyMesh->SetRelativeScale3D(BodyRelativeScale3D);
 	BodyMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	LeftEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("LeftEyeMesh"));
+	LeftEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>("LeftEyeMesh");
 	LeftEyeMesh->SetupAttachment(HeadMesh);
 	LeftEyeMesh->SetRelativeLocation(LeftEyeRelativeLocation);
 	LeftEyeMesh->SetRelativeRotation(EyesRelativeRotation);
 	LeftEyeMesh->SetRelativeScale3D(EyesRelativeScale3D);
 	LeftEyeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	RightEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RightEyeMesh"));
+	RightEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>("RightEyeMesh");
 	RightEyeMesh->SetupAttachment(HeadMesh);
 	RightEyeMesh->SetRelativeLocation(RightEyeRelativeLocation);
 	RightEyeMesh->SetRelativeScale3D(EyesRelativeScale3D);
 	RightEyeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	SpawnPointComponent = CreateDefaultSubobject<USceneComponent>("SpawnPoint");
+	SpawnPointComponent->SetupAttachment(RootComponent);
 	
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereMeshAsset(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
 
@@ -84,9 +86,18 @@ bool AVPBaseCharacter::HasKitchenObject()
 	return KitchenObject ? true : false;
 }
 
-void AVPBaseCharacter::SetKitchenObject(AKitchenObject* Object)
+void AVPBaseCharacter::AddKitchenObject(AKitchenObject* Object)
 {
+	if(!Object || KitchenObject) return;
+	
 	KitchenObject = Object;
+	KitchenObject->AttachToComponent(SpawnPointComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+}
+
+void AVPBaseCharacter::RemoveKitchenObject()
+{
+	if(!HasKitchenObject()) return;
+	KitchenObject = nullptr;
 }
 
 AKitchenObject* AVPBaseCharacter::GetKitchenObject()

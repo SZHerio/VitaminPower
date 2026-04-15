@@ -29,7 +29,8 @@ protected:
 	
 public:
 	virtual void Interact(AVPBaseCharacter* BaseCharacter) override;
-	virtual bool HasKitchenObject();
-	virtual void SetKitchenObject(AKitchenObject* Object);
-	virtual AKitchenObject* GetKitchenObject();
+	virtual void RemoveKitchenObject() override;
+	virtual void AddKitchenObject(AKitchenObject* Object) override;
+	virtual bool HasKitchenObject() override;
+	virtual AKitchenObject* GetKitchenObject() override;
 };
