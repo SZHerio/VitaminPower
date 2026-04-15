@@ -1,13 +1,11 @@
 // A Vitamin Power Game. All Rights Reserved.
 
 #include "Characters/VPBaseCharacter.h"
-#include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
-#include "GameFramework/SpringArmComponent.h"
 
 AVPBaseCharacter::AVPBaseCharacter()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 	
 	GetMesh()->SetHiddenInGame(true);
 	GetMesh()->SetVisibility(false);
@@ -16,28 +14,28 @@ AVPBaseCharacter::AVPBaseCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(CapsuleSizeRadius, CapsuleSizeHalfHeight);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	
-	HeadMesh = CreateDefaultSubobject<UStaticMeshComponent>("Head Mesh");
+	HeadMesh = CreateDefaultSubobject<UStaticMeshComponent>("HeadMesh");
 	HeadMesh->SetupAttachment(RootComponent);
 	HeadMesh->SetAbsolute(false, false, false);
 	HeadMesh->SetRelativeLocation(HeadRelativeLocation);
 	HeadMesh->SetRelativeScale3D(HeadRelativeScale3D);
 	HeadMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	
-	BodyMesh = CreateDefaultSubobject<UStaticMeshComponent>("Body Mesh");
+	BodyMesh = CreateDefaultSubobject<UStaticMeshComponent>("BodyMesh");
 	BodyMesh->SetupAttachment(RootComponent);
 	BodyMesh->SetAbsolute(false, false, false);
 	BodyMesh->SetRelativeLocation(BodyRelativeLocation);
 	BodyMesh->SetRelativeScale3D(BodyRelativeScale3D);
 	BodyMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	LeftEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Left Eye Mesh"));
+	LeftEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("LeftEyeMesh"));
 	LeftEyeMesh->SetupAttachment(HeadMesh);
 	LeftEyeMesh->SetRelativeLocation(LeftEyeRelativeLocation);
 	LeftEyeMesh->SetRelativeRotation(EyesRelativeRotation);
 	LeftEyeMesh->SetRelativeScale3D(EyesRelativeScale3D);
 	LeftEyeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	RightEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Right Eye Mesh"));
+	RightEyeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RightEyeMesh"));
 	RightEyeMesh->SetupAttachment(HeadMesh);
 	RightEyeMesh->SetRelativeLocation(RightEyeRelativeLocation);
 	RightEyeMesh->SetRelativeScale3D(EyesRelativeScale3D);
@@ -58,12 +56,6 @@ void AVPBaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-}
-
-void AVPBaseCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 void AVPBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

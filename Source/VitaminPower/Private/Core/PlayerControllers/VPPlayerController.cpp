@@ -13,6 +13,12 @@ void AVPPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	InitMappingContext();
+}
+
+void AVPPlayerController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+
 	InitPlayerCharacter();
 }
 
@@ -55,10 +61,7 @@ void AVPPlayerController::Move(const FInputActionValue& Val)
 
 void AVPPlayerController::InitPlayerCharacter()
 {
-	const auto VPBaseCharacter = Cast<AVPBaseCharacter>(GetCharacter());
-	if(!VPBaseCharacter) return;
-
-	auto VPPlayerCharacter = Cast<AVPPlayerCharacter>(VPBaseCharacter);
+	auto VPPlayerCharacter = Cast<AVPPlayerCharacter>(GetCharacter());
 	if(!VPPlayerCharacter) return;
 
 	PlayerCharacter = VPPlayerCharacter;

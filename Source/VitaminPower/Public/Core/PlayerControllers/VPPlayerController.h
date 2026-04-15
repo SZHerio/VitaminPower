@@ -27,6 +27,7 @@ protected:
 	TObjectPtr<UInputAction> MoveInputAction;
 
 protected:
+	virtual void OnPossess(APawn* InPawn) override;
 	virtual void SetupInputComponent() override;
 	
 private:

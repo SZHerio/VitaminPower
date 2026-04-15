@@ -16,7 +16,7 @@ AVPPlayerCharacter::AVPPlayerCharacter()
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = MovementRotationRate;
 	
-	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("Spring Arm");
+	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArm");
 	SpringArmComponent->SetupAttachment(RootComponent);
 	SpringArmComponent->SetRelativeRotation(SpringArmRelativeRotation);
 	SpringArmComponent->TargetArmLength = SpringArmTargetArmLength;
