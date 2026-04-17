@@ -73,7 +73,7 @@ public:
 	virtual bool HasKitchenObject() override;
 	virtual AKitchenObject* GetKitchenObject() override;
 	virtual void RemoveKitchenObject() override;
-	virtual void AddKitchenObject(AKitchenObject* Object) override;
+	virtual bool TryAddKitchenObject(AKitchenObject* Object) override;
 	
 protected:
 	void FindObjectByTrace();

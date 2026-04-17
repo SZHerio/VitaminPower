@@ -86,12 +86,14 @@ bool AVPBaseCharacter::HasKitchenObject()
 	return KitchenObject ? true : false;
 }
 
-void AVPBaseCharacter::AddKitchenObject(AKitchenObject* Object)
+bool AVPBaseCharacter::TryAddKitchenObject(AKitchenObject* Object)
 {
-	if(!Object || KitchenObject) return;
+	if(!Object || KitchenObject) return false;
 	
 	KitchenObject = Object;
 	KitchenObject->AttachToComponent(SpawnPointComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+
+	return true;
 }
 
 void AVPBaseCharacter::RemoveKitchenObject()
@@ -115,8 +117,7 @@ void AVPBaseCharacter::FindObjectByTrace()
 	FCollisionQueryParams CollisionQueryParams;
 	CollisionQueryParams.AddIgnoredActor(this);
 	
-	const auto HasHit = GetWorld()->LineTraceSingleByChannel(ObjectHitResult, Start, End, ECC_Camera, CollisionQueryParams);
-	DrawDebugLine(GetWorld(), Start, End, HasHit ? FColor::Green : FColor::Red, false, -1, 0, 2.0f);
+	GetWorld()->LineTraceSingleByChannel(ObjectHitResult, Start, End, ECC_Camera, CollisionQueryParams);
 }
 
 void AVPBaseCharacter::SelectInteractableObject()

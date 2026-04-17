@@ -21,6 +21,6 @@ class VITAMINPOWER_API IVPKitchenObjectHolder
 public:
 	virtual bool HasKitchenObject() = 0;
 	virtual void RemoveKitchenObject() = 0;
-	virtual void AddKitchenObject(AKitchenObject* Object) = 0;
+	virtual bool TryAddKitchenObject(AKitchenObject* Object) = 0;
 	virtual AKitchenObject* GetKitchenObject() = 0;
 };

@@ -18,7 +18,7 @@ public:
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
+	TObjectPtr<UStaticMeshComponent> MainMeshComponent;
 	
 	UPROPERTY(EditAnywhere, Category = "Fields")
 	FKitchenObjectParams Params{};
@@ -27,5 +27,7 @@ protected:
 
 public:	
 	virtual void Tick(float DeltaTime) override;
+
+	void SetCollitsionParametersForCounter();
 
 };

@@ -2,11 +2,12 @@
 
 #include "Props/Counters/VPClearCounter.h"
 #include "Characters/VPBaseCharacter.h"
+#include "Core/Misc/VPUtils.h"
 
 AVPClearCounter::AVPClearCounter()
 {
-	SpawnSceneComponent = CreateDefaultSubobject<USceneComponent>("SpawnPoint");
-	SpawnSceneComponent->SetupAttachment(RootComponent);
+	SpawnPointComponent = CreateDefaultSubobject<USceneComponent>("SpawnPoint");
+	SpawnPointComponent->SetupAttachment(RootComponent);
 }
 
 void AVPClearCounter::Interact(AVPBaseCharacter* BaseCharacter)
@@ -17,14 +18,20 @@ void AVPClearCounter::Interact(AVPBaseCharacter* BaseCharacter)
 	{
 		if(!HasKitchenObject()) return;
 
+		const auto LastKitchenObject = KitchenObjects.Last();
+
+		BaseCharacter->TryAddKitchenObject(LastKitchenObject);
 		RemoveKitchenObject();
-		BaseCharacter->AddKitchenObject(KitchenObjects.Top());
 	}
 	else
 	{
 		if(!BaseCharacter->HasKitchenObject()) return;
+		if(!TryAddKitchenObject(CharacterKitchenObject)) return;
+		
+		const auto SpawnLocation = SpawnPointComponent->GetComponentLocation();
 
-		AddKitchenObject(CharacterKitchenObject);
+		CharacterKitchenObject->SetActorLocation(SpawnLocation);
+		VPUtils::MoveKitchenObjectToCounterSurface(GetWorld(), CharacterKitchenObject);
 		BaseCharacter->RemoveKitchenObject();
 	}
 }
@@ -40,11 +47,14 @@ void AVPClearCounter::RemoveKitchenObject()
 	KitchenObjects.Pop();
 }
 
-void AVPClearCounter::AddKitchenObject(AKitchenObject* Object)
+bool AVPClearCounter::TryAddKitchenObject(AKitchenObject* Object)
 {
-	if(!Object || KitchenObjects.Num() >= MaxKitchenObjectsSize) return;
+	if(!Object || KitchenObjects.Num() >= MaxKitchenObjectsSize) return false;
 
+	Object->AttachToComponent(SpawnPointComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+	Object->SetCollitsionParametersForCounter();
 	KitchenObjects.Add(Object);
+	return true;
 }
 
 AKitchenObject* AVPClearCounter::GetKitchenObject()

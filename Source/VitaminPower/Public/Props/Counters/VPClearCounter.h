@@ -19,18 +19,18 @@ public:
 	
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	TObjectPtr<USceneComponent> SpawnSceneComponent;
+	TObjectPtr<USceneComponent> SpawnPointComponent;
 	
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "Fields")
 	TArray<TObjectPtr<AKitchenObject>> KitchenObjects;
 
-	UPROPERTY(meta=(ClampMin = "1", ClampMax = "4"))
-	int32 MaxKitchenObjectsSize = 4;
+	UPROPERTY(EditAnywhere, Category = "Fields", meta=(ClampMin = "1", ClampMax = "10"))
+	int32 MaxKitchenObjectsSize = 10;
 	
 public:
 	virtual void Interact(AVPBaseCharacter* BaseCharacter) override;
 	virtual void RemoveKitchenObject() override;
-	virtual void AddKitchenObject(AKitchenObject* Object) override;
+	virtual bool TryAddKitchenObject(AKitchenObject* Object) override;
 	virtual bool HasKitchenObject() override;
 	virtual AKitchenObject* GetKitchenObject() override;
 };
