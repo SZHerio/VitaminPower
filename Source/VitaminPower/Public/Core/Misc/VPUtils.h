@@ -50,5 +50,23 @@ public:
 
 		KitchenObject->SetActorLocation(TargetLocation);
 	}
-	
+
+	static AKitchenObject* GetSpawnedKitchenObject(UWorld* World, const AActor* ActorOwner, const TSubclassOf<AKitchenObject>& KitchenObjectToSpawnClass)
+	{
+		if(!World || !ActorOwner || !KitchenObjectToSpawnClass) return nullptr;
+		
+		FActorSpawnParameters SpawnParameters;
+		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+		AKitchenObject* NewKitchenObject = World->SpawnActor<AKitchenObject>(
+			KitchenObjectToSpawnClass
+			,ActorOwner->GetActorLocation()
+			,ActorOwner->GetActorRotation()
+			,SpawnParameters);
+
+		if(!NewKitchenObject) return nullptr;
+
+		NewKitchenObject->SetCollitsionParametersForCounter();
+		return NewKitchenObject;
+	}
 };

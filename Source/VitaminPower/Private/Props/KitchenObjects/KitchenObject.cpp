@@ -34,3 +34,8 @@ void AKitchenObject::SetCollitsionParametersForCounter()
 	MainMeshComponent->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 }
 
+EKitchenObjectType AKitchenObject::GetType() const
+{
+	return Params.Type;
+}
+

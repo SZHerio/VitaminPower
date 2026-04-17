@@ -28,6 +28,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> InteractInputAction;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UInputAction> SpecialInteractInputAction;
 	
 protected:
 	virtual void OnPossess(APawn* InPawn) override;
@@ -37,6 +40,7 @@ private:
 	void InitMappingContext();
 	void Move(const FInputActionValue& Val);
 	void Interact();
+	void SpecialInteract();
 	void InitPlayerCharacter();
 
 private:

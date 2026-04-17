@@ -23,4 +23,5 @@ public:
 	virtual void RemoveKitchenObject() = 0;
 	virtual bool TryAddKitchenObject(AKitchenObject* Object) = 0;
 	virtual AKitchenObject* GetKitchenObject() = 0;
+	virtual void SpawnKitchenObjectsOnStart() = 0;
 };

@@ -38,6 +38,11 @@ void AVPPlayerController::SetupInputComponent()
 	{
 		EnhancedInputComponent->BindAction(InteractInputAction, ETriggerEvent::Completed, this, &AVPPlayerController::Interact);
 	}
+
+	if(SpecialInteractInputAction)
+	{
+		EnhancedInputComponent->BindAction(SpecialInteractInputAction, ETriggerEvent::Completed, this, &AVPPlayerController::SpecialInteract);
+	}
 }
 
 void AVPPlayerController::InitMappingContext()
@@ -67,6 +72,11 @@ void AVPPlayerController::Move(const FInputActionValue& Val)
 void AVPPlayerController::Interact()
 {
 	PlayerCharacter->OnStartedInteraction.Broadcast();
+}
+
+void AVPPlayerController::SpecialInteract()
+{
+	PlayerCharacter->OnStartedSpecialInteraction.Broadcast();
 }
 
 void AVPPlayerController::InitPlayerCharacter()

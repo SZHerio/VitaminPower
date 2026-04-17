@@ -2,7 +2,9 @@
 
 #include "Characters/VPBaseCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Core/Misc/VPUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Props/Counters/VPClearCounter.h"
 #include "Props/Counters/VPInteractableObject.h"
 #include "Props/KitchenObjects/KitchenObject.h"
 
@@ -64,6 +66,9 @@ void AVPBaseCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	OnStartedInteraction.AddUObject(this, &AVPBaseCharacter::BaseCharacter_OnStartedInteraction);
+	OnStartedSpecialInteraction.AddUObject(this, &AVPBaseCharacter::BaseCharacter_OnStartedSpecialInteraction);
+	
+	SpawnKitchenObjectsOnStart();
 }
 
 void AVPBaseCharacter::Tick(float DeltaSeconds)
@@ -155,5 +160,23 @@ void AVPBaseCharacter::BaseCharacter_OnStartedInteraction()
 	if(!CurrentInteractableObject) return;
 
 	CurrentInteractableObject->Interact(this);
+}
+
+void AVPBaseCharacter::BaseCharacter_OnStartedSpecialInteraction()
+{
+	if(!CurrentInteractableObject) return;
+	
+	const auto ClearCounter = Cast<AVPClearCounter>(CurrentInteractableObject);
+	if(!ClearCounter) return;
+
+	ClearCounter->SpecialInteract();
+}
+
+void AVPBaseCharacter::SpawnKitchenObjectsOnStart()
+{
+	if(!GetWorld() || !KitchenObjectClass) return;
+
+	const auto NewKitchenObject = VPUtils::GetSpawnedKitchenObject(GetWorld(), this, KitchenObjectClass);
+	TryAddKitchenObject(NewKitchenObject);
 }
 

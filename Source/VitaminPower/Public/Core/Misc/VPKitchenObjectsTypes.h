@@ -3,6 +3,9 @@
 #include "CoreMinimal.h"
 #include "VPKitchenObjectsTypes.generated.h"
 
+class AVPSpecialKitchenObject;
+class AKitchenObject;
+
 UENUM(BlueprintType)
 enum class EKitchenObjectType : uint8
 {
@@ -33,6 +36,21 @@ struct FKitchenObjectParams
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TObjectPtr<UTexture2D> Image = nullptr;
+};
+
+USTRUCT(BlueprintType)
+struct FKitchenObjectRecipe
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<AVPSpecialKitchenObject> KitchenObjectToCut;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<AKitchenObject> CutKitchenObject;
+
+	UPROPERTY(EditDefaultsOnly, meta=(ClampMin = "0.1", ClampMax = "1.0"))
+	float CuttingModifier = 0.3f;
 };
 
 

@@ -20,6 +20,7 @@ public:
 	AVPBaseCharacter();
 
 	FOnCharacterStartedInteractionHandle OnStartedInteraction;
+	FOnCharacterStartedSpecialInteractionHandle OnStartedSpecialInteraction;
 
 protected:
 	virtual void BeginPlay() override;
@@ -44,9 +45,9 @@ protected:
 protected:
 	UPROPERTY(EditAnywhere, Category = "Tracing", meta=(ClampMax = "1000.0", ClampMin = "50.0"))
 	float TraceLength = 200.0f;
-
+	
 	UPROPERTY()
-	TObjectPtr<AKitchenObject> KitchenObject;
+	TSubclassOf<AKitchenObject> KitchenObjectClass;
 
 	UPROPERTY()
 	TObjectPtr<AVPInteractableObject> CurrentInteractableObject;
@@ -66,7 +67,10 @@ protected:
 	FVector EyesRelativeScale3D = FVector(0.13f, 0.13f, 0.19f);
 	FRotator EyesRelativeRotation = FRotator(20.0f, 0.0f, 0.0f);
 	FHitResult ObjectHitResult;
-	
+
+private:
+	UPROPERTY()
+	TObjectPtr<AKitchenObject> KitchenObject;
 	
 public:
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
@@ -79,7 +83,9 @@ protected:
 	void FindObjectByTrace();
 	void SelectInteractableObject();
 	void SetInteractableObject();
-
+	virtual void SpawnKitchenObjectsOnStart() override;
+	
 private:
 	void BaseCharacter_OnStartedInteraction();
+	void BaseCharacter_OnStartedSpecialInteraction();
 };

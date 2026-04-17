@@ -1,5 +1,6 @@
 ﻿#pragma once
 
-DECLARE_TS_MULTICAST_DELEGATE(FOnCharacterStartedInteractionHandle)
-
+DECLARE_MULTICAST_DELEGATE(FOnCharacterStartedInteractionHandle)
+DECLARE_MULTICAST_DELEGATE(FOnCharacterStartedSpecialInteractionHandle)
+DECLARE_MULTICAST_DELEGATE(FOnKitchenObjectAddedHandle)
 

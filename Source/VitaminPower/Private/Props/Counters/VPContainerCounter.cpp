@@ -4,6 +4,7 @@
 #include "Characters/VPBaseCharacter.h"
 #include "Props/KitchenObjects/KitchenObject.h"
 #include "Components/DecalComponent.h"
+#include "Core/Misc/VPUtils.h"
 
 AVPContainerCounter::AVPContainerCounter()
 {
@@ -25,17 +26,6 @@ void AVPContainerCounter::Interact(AVPBaseCharacter* BaseCharacter)
 {
 	if(!GetWorld() || !KitchenObjectClass || !BaseCharacter || BaseCharacter->HasKitchenObject()) return;
 
-	FActorSpawnParameters SpawnParameters;
-	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
-	AKitchenObject* NewKitchenObject = GetWorld()->SpawnActor<AKitchenObject>(
-		KitchenObjectClass
-		,GetActorLocation()
-		,GetActorRotation()
-		,SpawnParameters);
-
-	if(!NewKitchenObject) return;
-
-	NewKitchenObject->SetCollitsionParametersForCounter();
+	const auto NewKitchenObject = VPUtils::GetSpawnedKitchenObject(GetWorld(), this, KitchenObjectClass);
 	BaseCharacter->TryAddKitchenObject(NewKitchenObject);
 }
